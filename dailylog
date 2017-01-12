@@ -1,0 +1,59 @@
+创建数据库
+CREATE DATABASE IF NOT EXISTS admin DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
+修改表名
+ALTER  TABLE tab_name RENAME TO new_table_name;
+复制表结构和数据
+CREATE TABLE newtable  select * from table;
+查看表
+SHOW CREATE TABLE table;
+desc table;
+
+修改字段长度
+alter table user modify column name varchar(50)
+
+给现有表添加自增属性
+Alter table table_name modify column_name auto_increment;
+
+Alter table wx_cdk_zhisheng modify id not null  auto_increment;
+
+ALTER TABLE `YUNHE` CHANGE `id` `id` INT( 11 ) NOT NULL AUTO_INCREMENT
+
+
+给现有表设置自增值x
+Alter table table_name auto_increment=x;
+
+
+导出mysql查询的结果
+
+select  * FROM int_error_inside_2016_12_21  INTO outfile '/tmp/20161221_error.txt'
+路径是在数据库目录，
+例如 数据库路径： /var/lib/mysql/test
+因此导出 的数据文件 详细路径为：
+/var/lib/mysql/test/test.txt.
+
+如果不知道数据库目录，可以 通过 “find /  -name  test.txt ” 命令查找 。
+
+导出数据库：
+mysqldump GameData -uroot -p -d -h  > /tmp/GameData.sql
+mysqldump shouyou -uroot -p -d -h  > /tmp/shouyou.sql
+mysqldump admin -uroot -p -h  > /tmp/admin.sql
+
+
+数据库字符集 mysql> show variables like 'char%';
+数据表查出中文 显示问号
+mysql> set names utf8;
+
+1、	复制表结构及数据到新表
+CREATE TABLE 新表 SELECT * FROM 旧表 
+2、只复制表结构到新表 
+CREATE TABLE 新表 SELECT * FROM 旧表 WHERE 1=2 
+
+NAVICAT for mysql 远程连接指定服务器的数据库
+需要在指定服务器上数据库mysql中的user中给访问用户授权
+GRANT ALL PRIVILEGES ON *.* TO 'chen'@'192.168.19.1' IDENTIFIED BY 'chenyunhe123' WITH GRANT OPTION;
+
+枚举类型：
+空字符串错误值的编号值是0。这意味着，你能使用下列SELECT语句找出被赋给无效ENUM值的行：
+mysql> SELECT * FROM tbl_name WHERE enum_col=0;
+
