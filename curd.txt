@@ -1,0 +1,30 @@
+1.创建库 d
+CREATE DATABASE d
+
+2.删除库d
+DROP DATABASE d
+
+3.说明：创建新表
+create table tabname(col1 type1 [not null] [primary key],col2 type2 [not null],..)
+
+4.根据已有的表创建新表：
+A：create table tab_new like tab_old (使用旧表创建新表)
+B:
+CREATE TABLE 新表SELECT * FROM 旧表
+这种方法会将oldtable中所有的内容都拷贝过来
+不过这种方法的一个最不好的地方就是新表中没有了旧表的primary key、Extra（auto_increment）等属性。需要自己用&quot;alter&quot;添加，而且容易搞错。
+
+5.给t表增加字段 col
+ALTER TABLE t add column col int(4);
+
+6.给t表删除字段col
+ALTER TABLE t drop  col
+
+7.更新t表字段col类型
+ALTER TABLE MODIFY col varchar(100);
+
+8.增加t表主键col
+Alter table t add primary key(col)
+
+9.删除t表主键col
+Alter table t drop primary key(col)
