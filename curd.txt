@@ -21,7 +21,7 @@ ALTER TABLE t add column col int(4);
 ALTER TABLE t drop  col
 
 7.更新t表字段col类型
-ALTER TABLE MODIFY col varchar(100);
+ALTER TABLE t MODIFY col varchar(100);
 
 8.增加t表主键col
 Alter table t add primary key(col)
