@@ -1,0 +1,6 @@
+默认的话为自动提交， 
+每执行一个update ,delete或者insert的时候都会自动提交到数据库，无法回滚事务。 
+设置connection.setautocommit(false);只有程序调用connection.commit()的时候才会将先前执行的语句一起提交到数据库，这样就实现了数据库的事务。
+
+true：sql命令的提交（commit）由驱动程序负责 
+false：sql命令的提交由应用程序负责，程序必须调用commit或者rollback方法
